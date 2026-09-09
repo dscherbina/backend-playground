@@ -2,7 +2,8 @@ def greet(name):
     return f"Hello, {name}!"
 
 def main():
-    print(greet("world"))
+    name = input("Enter your name: ") or "world"
+    print(greet(name))
 
 if __name__ == "__main__":
     main()
