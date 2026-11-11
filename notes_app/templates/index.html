@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <style>
+    body { margin: 0; background: #f4f3fa; color: #1c2541; font: 17px/1.5 system-ui, sans-serif; }
+    main { max-width: 620px; margin: 48px auto; padding: 0 20px; }
+    h1 { margin: 0; color: #7a5ad6; font-size: 34px; }
+    p.meta { margin: 4px 0 28px; color: #6b7088; font-size: 14px; }
+    form { display: flex; gap: 8px; margin-bottom: 20px; }
+    input { flex: 1; padding: 11px 13px; border: 1px solid #cfcbe6; border-radius: 8px; font: inherit; }
+    button { padding: 11px 20px; border: 0; border-radius: 8px; background: #7a5ad6; color: #fff; font: inherit; cursor: pointer; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    li { margin-bottom: 8px; padding: 12px 14px; border-radius: 8px; background: #fff; }
+    .empty { color: #6b7088; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>{{ title }}</h1>
+    <p class="meta">Автор: {{ author }} · версія {{ version }}</p>
+    <form action="/add" method="post">
+      <input name="text" placeholder="Нова нотатка" autofocus required>
+      <button>Додати</button>
+    </form>
+    {% if notes %}
+      <ul>{% for note in notes %}<li>{{ note }}</li>{% endfor %}</ul>
+    {% else %}
+      <p class="empty">Нотаток поки немає.</p>
+    {% endif %}
+  </main>
+</body>
+</html>
